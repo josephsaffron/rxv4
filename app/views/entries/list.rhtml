@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+        <title>regularXpression - thought to design</title>
+        <link rel="stylesheet" type="text/css" href="../styles/rx.3.0.css">
+        <script type="text/javascript" language="javascript">
+                function open_comment(blogid){
+                        var link = "comments.pl?blogid=" + blogid;
+                        window.open(link,"_blank","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=
+yes, resizable=no, copyhistory=yes, width=400, height=500");
+                        return false;
+                }
+        </script>
+</head>
+
+<body>
+
+<div id="container">
+
+        <div id="intro">
+                <div id="pageHeader"><h1 class="headertitle"><span>regularXpression 3.0</span></h1></div>
+        </div>
+
+        <div id="supportingText">
+
+                <div id="blog">
+    <% for entry in @entries %>
+      <div id="blogitem">
+        <div id="entry#<%=entry%>">
+        <h3><%= link_to entry.title, :action => 'show', :id => entry %></h3><br />
+        <%=entry.saneText%>
+        </div><br />
+        
+        <div id="entry" class="tag">
+                                posted <%=entry.created_at%> |
+                                <%= link_to "Comments ("+entry.comments.length.to_s+")", :action => 'show', :id => entry %>
+
+         </div>
+      </div>
+      <% end %>
+                </div> <!-- end blog -->
+
+                <div id="footer">
+                        Copyright regularXpression.com 2006
+                </div>
+        </div>
+
+
+        <div id="sidepanel">
+                <div id="linkList">
+
+                        <div id="lselect">
+                                <ul>
+                                        <li><a href="default.aspx">main</a></li>
+                                        <!-- li><a href="#">photos</a></li >
+                                        <li><a href="#">writings</a></li -->
+                                </ul>
+                        </div>
+
+                        <div id="llinks">
+                                <h3 class="links"><span>Links</span></h3>
+                                <ul>
+                                        <li><a href="http://impromptu.sheepie.net/" target="_blank">sheepfold</a></li>
+                                        <li><a href="http://spaceinthewho.blogspot.com/" target="_blank">steph</a></li>
+                                        <li><a href="http://jelloz.blogspot.com/" target="_blank">jo</a></li>
+                                        <li><a href="http://www11.brinkster.com/l5lam/" target="_blank">lawrence</a></li>
+                                        <li><a href="http://jopoo.blogspot.com/" target="_blank">blood relations</a></li>
+                                        <li><a href="http://hollyholz.blogspot.com/" target="_blank">holz</a></li>
+                                        <li><a href="http://hermanhawkkan.blogspot.com/" target="_blank">hermes</a></li>
+                                </ul>
+                        </div>
+
+                </div>
+                        <div id="archive">
+                        <h3 class="archive"><span>Archive</span></h3>
+                        <rx:archive id="Archive" runat="server" />
+                </div>
+        </div>
+</div>
+<div id="image1"><span></span></div>
+<%= link_to "rss feed", :action => 'blogrss' %>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+<!-- 
+var sc_project=215840; 
+var sc_invisible=1; 
+var sc_partition=0; 
+var sc_security=""; 
+//-->
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c1.statcounter.com/counter.php?sc_project=215840&java=0&security=&invisible=1" alt="website statistics" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+</body>
+</html>
+        

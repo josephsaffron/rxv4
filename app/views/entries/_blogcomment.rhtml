@@ -1,0 +1,23 @@
+        
+	<div id="entry#<%= @entry.id %>" class="entry">
+        <h3><%= @entry.title %></h3><br />
+        <%= @entry.saneText%>
+        </div>
+        <br />
+	<a name="comments" />
+        <b>Comments:</b><br />
+        <% for comment in @entry.comments %>
+            <%= comment.text %><br />
+            <div><%= comment.name%></div>
+            <hr />
+        <% end %>
+        <div>
+            posted <%= @entry.created_at%>
+            <p>
+	            Comment:
+            <%= start_form_tag :action => 'index', :id=> @entry.id %>
+              <%= render :partial => 'addcomment' %>
+              <%= submit_tag "Post Comment" %>
+            <%= end_form_tag %>
+            </p>
+         </div>

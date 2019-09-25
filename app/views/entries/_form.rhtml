@@ -1,0 +1,31 @@
+<%= error_messages_for 'entry' %>
+
+<!--[form:entry]-->
+<% unless params[:action] == "new" %>
+	<p><label for="entry_created">Created</label><br/>
+	<%= datetime_select 'entry', 'created_at'  %></p>
+<% end %>
+<p><label for="entry_title">Title</label><br/>
+<%= text_field 'entry', 'title'  %></p>
+
+<p><label for="entry_author">Author</label><br/>
+<%= text_field 'entry', 'author'  %></p>
+
+<p><b>Category:</b><br />
+<select name="entry[category_id]">
+   <% @categories.each do |category| %>
+       <option value="<%= category.id %>" 
+         <%= ' selected' if category.id == @entry.category_id %>>
+         <%= category.name %>
+       </option>
+   <% end %>
+</select></p>
+
+<p><label for="entry_text">Text</label><br/>
+<%= text_area 'entry', 'text'  %></p>
+
+
+
+
+<!--[eoform:entry]-->
+

@@ -1,0 +1,18 @@
+xml.instruct! :xml, :version=>"1.0"
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("regularXpression.com")
+    xml.link("http://www.regularXpression.com")
+    xml.description("From thought to design")
+    xml.language("en-en")
+    for comment in @comments
+      xml.item do
+        xml.title("#{comment.entry.title} - #{comment.id} - #{comment.name}")
+        xml.description(comment.text)
+        # rfc822
+        xml.pubDate(comment.created.rfc2822)
+      xml.link "rel" => "alternate", "href" => url_for (:only_path => false, :controller => 'entries', :id =>comment.entry.id , :action=>'show')
+      end
+    end
+  }
+}

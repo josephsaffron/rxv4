@@ -1,0 +1,12 @@
+    <% for entry in @entries %>
+      <div id="entry<%=entry.id%>" class="entry">
+        <h3><%= link_to entry.title, :action => 'index', :id => entry %></h3>
+        <p><%=entry.saneText%></p>
+        
+      	<div class="comments">
+                                posted <%=entry.created_at%> |
+                                <%= link_to "Comments ("+entry.comments.length.to_s+")", :action => 'index', :id => entry,:anchor => 'comments' %>
+
+      	</div>
+      </div>
+      <% end %>

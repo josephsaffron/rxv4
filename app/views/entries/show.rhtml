@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<body>
+
+<h3><%=@entry.title%></h3>
+<%=@entry.saneText %>
+<p>
+<hr />
+<% for comment in @entry.comments %>
+    <%= comment.text %><br />
+    <div><%= comment.name%></div>
+    <hr />
+<% end %>
+
+<p>
+<p>
+Comment:
+<%= start_form_tag :action => 'show' %>
+  <%= render :partial => 'addcomment' %>
+  <%= submit_tag "Post Comment" %>
+<%= end_form_tag %>
+</p>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+<!-- 
+var sc_project=215840; 
+var sc_invisible=1; 
+var sc_partition=0; 
+var sc_security=""; 
+//-->
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c1.statcounter.com/counter.php?sc_project=215840&java=0&security=&invisible=1" alt="website statistics" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+</body>
+</html>
